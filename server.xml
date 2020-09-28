@@ -16,6 +16,7 @@
         <feature>jaxrs-2.1</feature>
         <feature>ssl-1.0</feature>
     </featureManager>
+	<!-- test comment -->
         
         <keyStore id="defaultKeyStore" password="yourPassword" />
 
