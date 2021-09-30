@@ -1,4 +1,5 @@
-FROM openliberty/open-liberty:kernel-java8-openj9-ubi
+FROM openliberty/open-liberty:kernel-slim-java8-openj9-ubi
+#FROM openliberty/open-liberty:kernel-java8-openj9-ubi
 
 ## docker build -t daytrader-sample:1.0-SNAPSHOT .
 
