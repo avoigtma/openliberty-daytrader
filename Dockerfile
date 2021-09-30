@@ -1,5 +1,6 @@
-FROM openliberty/open-liberty:kernel-slim-java8-openj9-ubi
-#FROM openliberty/open-liberty:kernel-java8-openj9-ubi
+FROM openliberty/open-liberty:full-java8-openj9-ubi
+###FROM openliberty/open-liberty:kernel-slim-java8-openj9-ubi ## slim does not work; missing modules which would need to be added
+#FROM openliberty/open-liberty:kernel-java8-openj9-ubi ## this is a deprecated image as of v20.xxx
 
 ## docker build -t daytrader-sample:1.0-SNAPSHOT .
 
