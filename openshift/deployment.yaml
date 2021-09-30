@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: openliberty-daytrader-git
+    app.kubernetes.io/component: openliberty-daytrader-git
+    app.kubernetes.io/instance: openliberty-daytrader-git
+    app.kubernetes.io/name: openliberty-daytrader-git
+    app.kubernetes.io/part-of: openliberty-daytrader-app
+  name: openliberty-daytrader-git
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openliberty-daytrader-git
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: openliberty-daytrader-git
+        deploymentconfig: openliberty-daytrader-git
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/mynamespace/openliberty-daytrader-git
+        imagePullPolicy: Always
+        name: openliberty-daytrader-git
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

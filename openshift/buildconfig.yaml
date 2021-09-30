@@ -1,0 +1,39 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: openliberty-daytrader-git
+    app.kubernetes.io/component: openliberty-daytrader-git
+    app.kubernetes.io/instance: openliberty-daytrader-git
+    app.kubernetes.io/name: openliberty-daytrader-git
+    app.kubernetes.io/part-of: openliberty-daytrader-app
+  name: openliberty-daytrader-git
+spec:
+  failedBuildsHistoryLimit: 3
+  output:
+    to:
+      kind: ImageStreamTag
+      name: openliberty-daytrader-git:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/avoigtma/openliberty-daytrader.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secretReference:
+        name: openliberty-daytrader-git-generic-webhook-secret
+    type: Generic
+  - github:
+      secretReference:
+        name: openliberty-daytrader-git-github-webhook-secret
+    type: GitHub
+  - type: ConfigChange
