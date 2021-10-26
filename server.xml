@@ -46,6 +46,8 @@
 
 	<library id="jdbcLib">
 		<fileset dir="jdbc" includes="*.jar"/>
+		<fileset dir="lib" includes="*.jar"/>
+		<fileset dir="WEB-INF/lib" includes="*.jar"/>
 	</library>
 
 	<dataSource jndiName="jdbc/TradeDataSource">
