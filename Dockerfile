@@ -22,6 +22,7 @@ LABEL \
 
 # Add my app and config
 COPY --chown=1001:0  io.openliberty.sample.daytrader8.war /config/apps/
+COPY --chown=1001:0  postgres-jdbc/*.jar /opt/ol/wlp/lib/
 COPY --chown=1001:0  server.xml /config/
 
 # Add interim fixes (optional)
