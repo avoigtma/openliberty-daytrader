@@ -1,4 +1,9 @@
 -Mms3072M
 -Mmx3072M
 -Djava.io.tmpdir=/tmp/javatmp
+-Dcom.sun.management.jmxremote.port=51001
+-Dcom.sun.management.jmxremote.rmi.port=51002
+-Djava.rmi.server.hostname=localhost
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false
 
