@@ -24,6 +24,7 @@ LABEL \
 COPY --chown=1001:0  io.openliberty.sample.daytrader8.war /config/apps/
 COPY --chown=1001:0  postgres-jdbc/*.jar /opt/ol/wlp/lib/
 COPY --chown=1001:0  server.xml /config/
+COPY --chown=1001:0  jvm.options /config/
 
 # Add interim fixes (optional)
 #COPY --chown=1001:0  interim-fixes /opt/ol/fixes/
