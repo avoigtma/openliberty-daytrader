@@ -32,6 +32,9 @@ COPY --chown=1001:0  jvm.options /config/
 # Default setting for the verbose option
 ARG VERBOSE=true
 
+# enable Transport Security in Liberty by adding the transportSecurity-1.0 feature (includes support for SSL)
+ARG SSL=true
+
 # This script will add the requested XML snippets, grow image to be fit-for-purpose and apply interim fixes
 RUN configure.sh
 
