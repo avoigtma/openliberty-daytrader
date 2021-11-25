@@ -30,7 +30,7 @@ COPY --chown=1001:0  jvm.options /config/
 #COPY --chown=1001:0  interim-fixes /opt/ol/fixes/
 
 # Default setting for the verbose option
-ARG VERBOSE=false
+ARG VERBOSE=true
 
 # This script will add the requested XML snippets, grow image to be fit-for-purpose and apply interim fixes
 RUN configure.sh
