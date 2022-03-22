@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: openliberty-daytrader-git
+    app.kubernetes.io/component: openliberty-daytrader-git
+    app.kubernetes.io/instance: openliberty-daytrader-git
+    app.kubernetes.io/name: openliberty-daytrader-git
+    app.kubernetes.io/part-of: openliberty-daytrader-app
+  name: daytrader-tls-reencrypt
+spec:
+  port:
+    targetPort: 9443-tcp
+  tls:
+    destinationCACertificate: "-----BEGIN CERTIFICATE-----\r\nthe-pod-workload-certificate-needs-to-go-here\r\n-----END CERTIFICATE-----\r\n"
+    insecureEdgeTerminationPolicy: Redirect
+    termination: reencrypt
+  to:
+    kind: Service
+    name: openliberty-daytrader-git
+    weight: 100
+  wildcardPolicy: None

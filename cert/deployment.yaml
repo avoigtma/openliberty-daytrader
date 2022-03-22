@@ -38,6 +38,24 @@ spec:
             memory: 4Gi
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        volumeMounts:
+          - name: server-cert-volume
+            readOnly: true
+            mountPath: /config/mykeystore.p12
+            subPath: mykeystore.p12
+          - name: server-config-volume
+            readOnly: true
+            mountPath: /config/server.xml
+            subPath: server.xml
+      volumes:
+        - name: server-cert-volume
+          secret:
+            secretName: server-cert
+            defaultMode: 420
+        - name: server-config-volume
+          secret:
+            secretName: server-config
+            defaultMode: 420
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
